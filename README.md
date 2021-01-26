@@ -27,7 +27,9 @@ then select `Create a new app`
 with the following information
 
 name: `wallscraper`
+
 description: `an image scraper for downloading desktop wallpapers`
+
 redirect uri: `http://localhost:8080`
 
 ### step 2:
