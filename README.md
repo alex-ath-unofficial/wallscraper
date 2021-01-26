@@ -55,7 +55,9 @@ run the following command to begin the authentication process
 ```bash
 python3 auth.py
 ```
-you will be prompted with a link for reddit.
+you will be asked to provide your `reddit username` and your app's `client id` and `client secret`
+
+then you will be prompted with a link for reddit.
 copy and paste into your browser and
 give necessary permissions to reddit.
 
