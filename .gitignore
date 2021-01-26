@@ -1,0 +1,13 @@
+# Ignore __pycache__
+__pycache__/
+
+# Ignore the subs.txt file
+subs.txt
+
+# And my personal info
+client.txt
+.refresh_token.txt
+
+# And the pics currently in the folder
+pics/*.png
+pics/*.jpg
