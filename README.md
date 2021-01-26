@@ -46,7 +46,6 @@ installing python libraries
 run the following commands in your terminal
 ```bash
 pip3 install praw
-pip3 install requests
 ```
 
 ### step 4:
