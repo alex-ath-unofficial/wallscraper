@@ -13,6 +13,7 @@ directory with random images every time you open your computer.
 '''
 
 import praw
+import prawcore
 import requests
 import random
 
@@ -69,15 +70,19 @@ with open(SCRIPT_DIR + 'subs.txt', 'r') as subs_list:
                 continue
             if not silence:
                 print('accessing /r/' + sub + '...')
-            for post in reddit.subreddit(sub).hot(limit=(10*img_count//len(subs_list))):
-                url=post.url
-                if not post.over_18 and '.jpg' in url or '.png' in url:
-                    urls.append(url)
+            try:
+                for post in reddit.subreddit(sub).hot(limit=(10*img_count//len(subs_list))):
+                    url=post.url
+                    if not post.over_18 and '.jpg' in url or '.png' in url:
+                        urls.append(url)
+            except prawcore.exceptions.Forbidden: 
+                print('-- ACCESS FORBIDDEN --')
 
 if not silence:
     print()
     print('Number of pictures:', len(urls))
     print()
+
 
 # Deleting all image files in DIR
 files = [join(IMG_DIR, f) for f in listdir(IMG_DIR) if isfile(join(IMG_DIR, f)) and ('.png' in f or '.jpg' in f)]
